@@ -48,6 +48,7 @@ class Settings(BaseSettings):
     
     # Mail server ==============================
 
+    brevo_api_key: str = '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'
     resend_api_key: str = 're_B8ugUxA8_4RtbQgKvkScityAxs9zr2zkg'
     smtp_server: str = 'smtp.gmail.com'
     smtp_port: int = 465

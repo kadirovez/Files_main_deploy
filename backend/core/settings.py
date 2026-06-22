@@ -39,7 +39,7 @@ class Settings(BaseSettings):
     password_max_life_days: int = 90
     # Mail server ==============================
     smtp_server: str = 'smtp.gmail.com'
-    smtp_port: int = 587
+    smtp_port: int = 465
     smtp_user: str = 'aligavali228@gmail.com'
     smtp_password: str = 'wkevqeljeoyzixdw'
     smtp_sender_email: str = 'aligavali228@gmail.com'

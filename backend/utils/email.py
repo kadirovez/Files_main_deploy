@@ -10,6 +10,7 @@ from starlette import status
 
 from backend.core.settings import settings
 
+resend.api_key = settings.resend_api_key
 
 async def send_email(
         receiver_email: str,

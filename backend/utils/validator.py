@@ -25,6 +25,6 @@ def validate_password_policy(password : str) -> str:
 
     if errors:
         raise ValueError(
-            f'Password must contain: {','.join(errors)}'
+            f"Password must contain: {','.join(errors)}"
         )
     return password

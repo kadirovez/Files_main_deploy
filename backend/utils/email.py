@@ -1,4 +1,5 @@
 
+import httpx
 import resend
 import aiosmtplib
 from email.mime.multipart import MIMEMultipart
@@ -17,14 +18,40 @@ async def send_email(
         subject: str,
         body: str
 ) -> None:
-    """Send email via SMTP. Native async using aiosmtplib."""
-    try:
-            resend.Emails.send({
-                    "from": "SuperChat <onboarding@resend.dev>",
-        "to": receiver_email,
-        "subject": subject,
-        "html": body
-            })
+    """Send email via Brevo API."""
+    async with httpx.AsyncClient() as client:
+        response = await client.post(
+            "https://api.brevo.com/v3/smtp/email",
+            headers={
+                "api-key": settings.brevo_api_key,
+                "Content-Type": "application/json"
+            },
+            json={
+                "sender": {
+                    "name": settings.smtp_sender_name,
+                    "email": settings.smtp_sender_email
+                },
+                "to": [{"email": receiver_email}],
+                "subject": subject,
+                "htmlContent": body
+            }
+        )
+        if response.status_code != 201:
+            raise Exception(f"Failed to send email: {response.text}")
+
+# async def send_email(
+#         receiver_email: str,
+#         subject: str,
+#         body: str
+# ) -> None:
+#     """Send email via SMTP. Native async using aiosmtplib."""
+#     try:
+#             resend.Emails.send({
+#                     "from": "SuperChat <onboarding@resend.dev>",
+#         "to": receiver_email,
+#         "subject": subject,
+#         "html": body
+#             })
         # msg = MIMEMultipart()
         # msg["Reply-To"] = settings.smtp_sender_email
         # msg["From"] = formataddr((settings.smtp_sender_name, settings.smtp_sender_email))

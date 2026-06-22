@@ -4,10 +4,12 @@ from sqlalchemy.orm import DeclarativeBase
 
 from backend.core.settings import settings
 
+database_url = 'postgresql://faroosha:jQmyUKKVpfppyc5xUGk7X6JfAm3Jhi5u@dpg-d8sdv6e7r5hc73fcg1o0-a.frankfurt-postgres.render.com/chatdatabase_a7jq'
+
 
 # Create async database engine
 engine = create_async_engine(
-    settings.database_url,
+    database_url,
     echo=settings.debug,
     future=True,
     pool_pre_ping=True

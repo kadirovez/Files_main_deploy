@@ -14,4 +14,4 @@ pyjwt
 pydantic
 email-validator
 argon2-cffi
-psycopg[binary]
+

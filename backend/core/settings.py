@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     environment: str = 'production'
 
     # Database =================================
-    database_engine: str = 'postgresql+psycopg'
+    database_engine: str = 'postgresql+asyncpg'
     database_ip: str = 'dpg-d8sdv6e7r5hc73fcg1o-a'
     database_port: str = '5432'
     database_name: str = 'chatdatabase_a7jq'

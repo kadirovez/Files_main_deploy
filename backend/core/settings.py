@@ -12,11 +12,11 @@ class Settings(BaseSettings):
 
     # Database =================================
     database_engine: str = 'postgresql+psycopg'
-    database_ip: str = 'localhost'
+    database_ip: str = 'dpg-d8sdv6e7r5hc73fcg1o-a'
     database_port: str = '5432'
-    database_name: str = 'hmchat'
+    database_name: str = 'chatdatabase_a7jq'
     database_username: str = 'faroosha'
-    database_password: str = '1419'
+    database_password: str = 'jQmyUKKVpfppyc5xUGk7X6JfAm3Jhi5u'
 
     # Security =================================
     encryption_key : str = ''

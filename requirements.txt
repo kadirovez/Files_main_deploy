@@ -3,6 +3,7 @@ uvicorn[standard]
 jinja2
 python-multipart
 psycopg2
+asyncpg
 
 sqlalchemy
 greenlet

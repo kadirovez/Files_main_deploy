@@ -61,7 +61,7 @@ class Registration(SessionAuthDataBase):
     )
 
     email_code_expire_at: Mapped[datetime | None] = mapped_column(
-        DateTime,
+        DateTime(timezone=True),
         default=None,
         nullable=True,
     )

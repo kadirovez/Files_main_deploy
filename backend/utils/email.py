@@ -17,26 +17,33 @@ async def send_email(
 ) -> None:
     """Send email via SMTP. Native async using aiosmtplib."""
     try:
-        msg = MIMEMultipart()
-        msg["Reply-To"] = settings.smtp_sender_email
-        msg["From"] = formataddr((settings.smtp_sender_name, settings.smtp_sender_email))
-        msg["To"] = receiver_email
-        msg["Subject"] = subject
-        msg.attach(MIMEText(body, "html"))
+            resend.Emails.send({
+                    "from": "SuperChat <onboarding@resend.dev>",
+        "to": receiver_email,
+        "subject": subject,
+        "html": body
+            })
+        # msg = MIMEMultipart()
+        # msg["Reply-To"] = settings.smtp_sender_email
+        # msg["From"] = formataddr((settings.smtp_sender_name, settings.smtp_sender_email))
+        # msg["To"] = receiver_email
+        # msg["Subject"] = subject
+        # msg.attach(MIMEText(body, "html"))
 
-        ssl_context = ssl.create_default_context()
-        ssl_context.check_hostname = False
-        ssl_context.verify_mode = ssl.CERT_NONE
+        # ssl_context = ssl.create_default_context()
+        # ssl_context.check_hostname = False
+        # ssl_context.verify_mode = ssl.CERT_NONE
 
-        await aiosmtplib.send(
-            msg,
-            hostname=settings.smtp_server,
-            port=settings.smtp_port,
-            username=settings.smtp_user,
-            password=settings.smtp_password,
-            start_tls=True,
-            tls_context=ssl_context,
-        )
+        # await aiosmtplib.send(
+        #     msg,
+        #     hostname=settings.smtp_server,
+        #     port=settings.smtp_port,
+        #     username=settings.smtp_user,
+        #     password=settings.smtp_password,
+        #     start_tls=True,
+        #     tls_context=ssl_context,
+        # )
+
 
     except Exception as e:
         raise HTTPException(

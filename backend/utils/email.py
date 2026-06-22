@@ -39,14 +39,6 @@ async def send_email(
         if response.status_code != 201:
             raise Exception(f"Failed to send email: {response.text}")
 
-
-
-    except Exception as e:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to send email: {str(e)}"
-        )
-
 # async def send_email(generated_otp):
 #     print(generated_otp)
 #     return generated_otp

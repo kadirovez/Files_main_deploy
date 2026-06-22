@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — SuperChat🥀</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body class="login-body">
+  <div class="login-card auth-card">
+    <div class="login-logo">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <rect width="40" height="40" rx="12" fill="#6366f1"/>
+        <path d="M8 12h24M8 20h16M8 28h20" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" data-mode="login">Login</button>
+      <button type="button" class="auth-tab" data-mode="register">Registration</button>
+    </div>
+
+    <div class="auth-panel active" data-mode="login">
+      <h1 id="auth-title">Login</h1>
+      <p id="auth-subtitle" class="login-sub">Enter username or email</p>
+
+      <form id="auth-form" class="auth-form">
+        <div id="auth-fields"></div>
+        <p id="auth-error" class="login-error hidden"></p>
+        <p id="auth-hint" class="auth-hint"></p>
+        <button type="button" id="auth-back" class="auth-back hidden">← Back</button>
+        <button type="submit" id="auth-submit" class="auth-submit">Continue</button>
+      </form>
+    </div>
+
+    <div class="auth-panel" data-mode="register"></div>
+  </div>
+
+  <script type="module" src="/static/js/auth.js"></script>
+</body>
+</html>

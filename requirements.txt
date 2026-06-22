@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
+
+sqlalchemy
+greenlet
+pydantic-settings
+aiosmtplib
+starlette
+pyjwt
+
+pydantic
+email-validator
+argon2-cffi
+psycopg[binary]

@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     algorithm: str = 'HS256'
     access_token_expire_minutes: int = 15
     refresh_token_expire_days: int = 30
-    ip_check_enabled: bool = True
+    ip_check_enabled: bool = False
     max_attempt_per_ip: int = 10
     rate_limit_minutes: int = 5
     user_email_code_limit: int = 10
